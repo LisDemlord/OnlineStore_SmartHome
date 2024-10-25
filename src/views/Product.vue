@@ -3,7 +3,9 @@
     <div class="product-name">
       <h1>{{ product.name }}</h1>
     </div>
-    <img :src="product.imageUrl" :alt="product.name" class="product-image" />
+    <div class="block-image">
+      <img :src="product.imageUrl" :alt="product.name" class="product-image" />
+    </div>
 
     <p><strong>Цена:</strong> {{ product.price }} руб.</p>
 
@@ -44,7 +46,7 @@ export default defineComponent({
         id: 1,
         name: 'Умная лампа',
         price: 1500,
-        imageUrl: '/src/assets/smart-lamp.jpg',
+        imageUrl: '/src/assets/images/smart-lamp.jpg',
         description: 'Энергоэффективная лампа с управлением через смартфон.',
         specs: {
           Мощность: '10 Вт',
@@ -56,7 +58,7 @@ export default defineComponent({
         id: 2,
         name: 'Умная розетка',
         price: 2000,
-        imageUrl: '/src/assets/smart-socket.jpg',
+        imageUrl: '/src/assets/images/smart-socket.jpg',
         description:
           'Управляемая розетка с функцией таймера и дистанционного управления.',
         specs: {

@@ -3,6 +3,7 @@ header {
   padding: 1rem; /* Отступы внутри заголовка */
   display: flex; /* Используем Flexbox */
   justify-content: center; /* Центрируем содержимое по горизонтали */
+  border-radius: 10px;
 }
 
 /* Стили для ссылок навигации */

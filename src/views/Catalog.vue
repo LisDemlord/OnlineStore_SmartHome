@@ -27,13 +27,13 @@ export default defineComponent({
           id: 1,
           name: 'Умная лампа',
           price: 1500,
-          imageUrl: '/src/assets/smart-lamp.jpg',
+          imageUrl: '/src/assets/images/smart-lamp.jpg',
         },
         {
           id: 2,
           name: 'Умная розетка',
           price: 2000,
-          imageUrl: '/src/assets/smart-socket.jpg',
+          imageUrl: '/src/assets/images/smart-socket.jpg',
         },
       ],
     }

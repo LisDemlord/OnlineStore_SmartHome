@@ -1,9 +1,9 @@
 <template>
   <div class="product-card">
-    <img :src="product.imageUrl" :alt="product.name" class="product-image" />
-    <div class="product-name">
-      <h3>{{ product.name }}</h3>
-    </div>
+    <router-link :to="'/product/' + product.id">
+      <img :src="product.imageUrl" :alt="product.name" class="product-image" />
+    </router-link>
+    <h3>{{ product.name }}</h3>
     <p>{{ product.price }} руб.</p>
     <router-link :to="'/product/' + product.id">Посмотреть товар</router-link>
   </div>
