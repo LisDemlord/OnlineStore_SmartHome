@@ -3,9 +3,15 @@
     <header>
       <nav>
         <!-- Ссылки для навигации по маршрутам приложения -->
-        <router-link to="/">Главная</router-link> |
-        <router-link to="/catalog">Каталог</router-link> |
-        <router-link to="/cart">Корзина</router-link>
+        <router-link to="/" class="view-router-button">
+          <button>Главная</button>
+        </router-link>
+        <router-link to="/catalog" class="view-router-button">
+          <button>Каталог</button>
+        </router-link>
+        <router-link to="/cart" class="view-router-button">
+          <button>Корзина</button>
+        </router-link>
       </nav>
     </header>
     <main>

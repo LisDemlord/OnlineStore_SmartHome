@@ -1,6 +1,6 @@
 .product-card {
   width: 200px;
-  border: 1px solid #ddd;
+  border: 2px solid #1e90ff;
   padding: 16px;
   border-radius: 8px;
   text-align: center;
@@ -24,8 +24,23 @@
   color: #333;
 }
 
-.router-link {
+.view-product-button {
   display: inline-block;
   margin-top: 8px;
-  color: #1e90ff;
+  text-decoration: none;
+}
+
+.view-product-button button {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.view-product-button button:hover {
+  background-color: #187bcd;
 }

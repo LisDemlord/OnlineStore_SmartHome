@@ -1,8 +1,10 @@
 header {
-  background-color: #7ce3f5; /* Цвет фона заголовка */
-  padding: 1rem; /* Отступы внутри заголовка */
+  background-color: white; /* Цвет фона заголовка */
+  padding: 5px; /* Отступы внутри заголовка */
   display: flex; /* Используем Flexbox */
   justify-content: center; /* Центрируем содержимое по горизонтали */
+  border: 5px solid #1e90ff; /* Обводка: 2 пикселя, сплошная, синий цвет */
+  border-radius: 10px; /* Скругление углов */
   border-radius: 10px;
 }
 
@@ -14,4 +16,26 @@ nav a {
 /* Стили для основного контента */
 main {
   padding: 2rem; /* Отступы внутри основного контента */
+}
+
+.view-router-button {
+  display: inline-block;
+  margin: 10px; /* Убираем отступы */
+  padding: 0; /* Убираем внутренние отступы */
+}
+
+.view-router-button button {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 25px;
+  border-radius: 4px;
+  width: 100%;
+  margin: 0; /* Убираем отступы у кнопок */
+}
+
+.view-router-button button:hover {
+  background-color: #187bcd;
 }

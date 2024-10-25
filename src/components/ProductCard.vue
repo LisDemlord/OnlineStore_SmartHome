@@ -5,7 +5,10 @@
     </router-link>
     <h3>{{ product.name }}</h3>
     <p>{{ product.price }} руб.</p>
-    <router-link :to="'/product/' + product.id">Посмотреть товар</router-link>
+    <!-- Кнопка с обёрткой router-link -->
+    <router-link :to="'/product/' + product.id" class="view-product-button">
+      <button>Посмотреть товар</button>
+    </router-link>
   </div>
 </template>
 
