@@ -1,4 +1,9 @@
-# Параметры создание проекта:
+# Описание:
+
+"Проект создан с использование фреймфорка Vue JS 3 и представялет онлайн магазин с тематикой <Умный дом>."
+На данный момент реализованы Каталог, Корзина и Карточка товара.
+
+## Параметры, заданные при создании проекта:
 
 ```
 Vue.js - The Progressive JavaScript Framework
@@ -16,7 +21,7 @@ Vue.js - The Progressive JavaScript Framework
 ✔ Add Vue DevTools 7 extension for debugging? (experimental) … No
 ```
 
-# Основное содержание проекта:
+## Основная структура проекта:
 
 ```
 OnlineStore_SmartHome
