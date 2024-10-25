@@ -1,29 +1,35 @@
 <template>
-  <h1>Корзина</h1>
-  <!-- Заголовок страницы корзины -->
+  <div class="header-container"><h1>Корзина</h1></div>
   <ul v-if="cartItems.length">
-    <!-- Проверяем, есть ли товары в корзине -->
     <li v-for="item in cartItems" :key="item.id">
-      <!-- Перебираем товары в корзине -->
-      {{ item.name }} - {{ item.price }} руб.
-      <!-- Отображаем название и цену товара -->
+      {{ item.name }} - {{ item.price }} руб. x {{ item.quantity }}
+      <button @click="removeFromCart(item.id)">Удалить один</button>
     </li>
   </ul>
   <p v-else>Ваша корзина пуста</p>
-  <!-- Сообщение, если корзина пуста -->
 </template>
 
 <script lang="ts">
-// Импортируем необходимые функции и хранилище
-import { defineComponent } from 'vue'
-import { useCartStore } from '../stores/cart' // Импортируем хранилище корзины
+// Определяем основной компонент приложения
+import '../assets/style.css' // Импортируем файл стилей
+
+import { defineComponent, computed } from 'vue'
+import { useCartStore } from '../stores/cart'
 
 export default defineComponent({
-  name: 'Cart', // Имя компонента
+  name: 'Cart',
   setup() {
-    const cartStore = useCartStore() // Получаем доступ к хранилищу корзины
+    const cartStore = useCartStore()
+
+    const cartItems = computed(() => cartStore.items)
+
+    const removeFromCart = (id: number) => {
+      cartStore.removeFromCart(id)
+    }
+
     return {
-      cartItems: cartStore.items, // Возвращаем массив товаров из корзины
+      cartItems,
+      removeFromCart,
     }
   },
 })

@@ -1,19 +1,32 @@
-// Импортируем функцию defineStore из библиотеки Pinia
 import { defineStore } from 'pinia'
 
-// Определяем хранилище для корзины с уникальным идентификатором 'cart'
 export const useCartStore = defineStore('cart', {
-  // Определяем состояние хранилища
   state: () => ({
-    // Массив items будет хранить товары в корзине
-    items: [] as Array<{ id: number; name: string; price: number }>, // Массив объектов с полями id, name и price
+    items: [] as Array<{
+      id: number
+      name: string
+      price: number
+      quantity: number
+    }>,
   }),
-  // Определяем действия (actions) для работы с состоянием
   actions: {
-    // Метод для добавления товара в корзину
     addToCart(product: { id: number; name: string; price: number }) {
-      // Добавляем переданный продукт в массив items
-      this.items.push(product)
+      const existingItem = this.items.find(item => item.id === product.id)
+      if (existingItem) {
+        existingItem.quantity += 1
+      } else {
+        this.items.push({ ...product, quantity: 1 })
+      }
+    },
+    removeFromCart(productId: number) {
+      const itemIndex = this.items.findIndex(item => item.id === productId)
+      if (itemIndex !== -1) {
+        if (this.items[itemIndex].quantity > 1) {
+          this.items[itemIndex].quantity -= 1
+        } else {
+          this.items.splice(itemIndex, 1)
+        }
+      }
     },
   },
 })

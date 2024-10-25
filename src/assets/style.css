@@ -1,0 +1,75 @@
+/* Стили для заголовка */
+header {
+  background-color: #7ce3f5; /* Цвет фона заголовка */
+  padding: 1rem; /* Отступы внутри заголовка */
+  display: flex; /* Используем Flexbox */
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+}
+
+/* Стили для ссылок навигации */
+nav a {
+  margin: 0 1rem; /* Отступы по бокам для ссылок */
+}
+
+/* Стили для основного контента */
+main {
+  padding: 2rem; /* Отступы внутри основного контента */
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.product-card {
+  width: 200px;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.product-card p {
+  font-weight: bold;
+  color: #333;
+}
+
+.router-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #1e90ff;
+}
+
+button {
+  margin-left: 10px;
+  background-color: #ff6961;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff5c5c;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали (если нужно) */
+  height: 100px; /* Установите высоту контейнера, если нужно */
+}

@@ -1,30 +1,39 @@
 <template>
-  <h1>Каталог товаров</h1>
-  <!-- Заголовок страницы каталога -->
-  <ul>
-    <!-- Перебираем массив products и создаем элемент списка для каждого продукта -->
-    <li v-for="product in products" :key="product.id">
-      <!-- Ссылка на страницу продукта с использованием router-link -->
-      <router-link :to="'/product/' + product.id"
-        >{{ product.name }} - {{ product.price }} руб.</router-link
-      >
-    </li>
-  </ul>
+  <div class="header-container"><h1>Каталог товаров</h1></div>
+  <div class="product-list">
+    <ProductCard
+      v-for="product in products"
+      :key="product.id"
+      :product="product"
+    />
+  </div>
 </template>
 
 <script lang="ts">
-// Импортируем функцию defineComponent из Vue
-import { defineComponent } from 'vue'
+// Определяем основной компонент приложения
+import '../assets/style.css' // Импортируем файл стилей
 
-// Определяем компонент Catalog
+import { defineComponent } from 'vue'
+import ProductCard from '../components/ProductCard.vue'
+
 export default defineComponent({
-  name: 'Catalog', // Имя компонента
+  name: 'Catalog',
+  components: { ProductCard },
   data() {
     return {
-      // Массив продуктов, который будет отображаться в каталоге
       products: [
-        { id: 1, name: 'Умная лампа', price: 1500 }, // Продукт 1
-        { id: 2, name: 'Умная розетка', price: 2000 }, // Продукт 2
+        {
+          id: 1,
+          name: 'Умная лампа',
+          price: 1500,
+          imageUrl: '/src/assets/smart-lamp.jpg',
+        },
+        {
+          id: 2,
+          name: 'Умная розетка',
+          price: 2000,
+          imageUrl: '/src/assets/smart-socket.jpg',
+        },
       ],
     }
   },
