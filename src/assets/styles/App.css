@@ -1,29 +1,31 @@
+/* Стили для заголовка */
 header {
-  background-color: white; /* Цвет фона заголовка */
-  padding: 5px; /* Отступы внутри заголовка */
-  display: flex; /* Используем Flexbox */
-  justify-content: center; /* Центрируем содержимое по горизонтали */
-  border: 5px solid #1e90ff; /* Обводка: 2 пикселя, сплошная, синий цвет */
-  border-radius: 10px; /* Скругление углов */
+  background-color: white;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  border: 5px solid #1e90ff;
   border-radius: 10px;
 }
 
-/* Стили для ссылок навигации */
+/* Стили для навигационных ссылок */
 nav a {
-  margin: 0 1rem; /* Отступы по бокам для ссылок */
+  margin: 0 1rem;
 }
 
-/* Стили для основного контента */
+/* Стили для основного контента приложения */
 main {
-  padding: 2rem; /* Отступы внутри основного контента */
+  padding: 2rem;
 }
 
+/* Стили для кнопок навигации */
 .view-router-button {
   display: inline-block;
-  margin: 10px; /* Убираем отступы */
-  padding: 0; /* Убираем внутренние отступы */
+  margin: 10px;
+  padding: 0;
 }
 
+/* Стили для кнопок внутри навигации */
 .view-router-button button {
   background-color: #1e90ff;
   color: white;
@@ -33,9 +35,10 @@ main {
   font-size: 25px;
   border-radius: 4px;
   width: 100%;
-  margin: 0; /* Убираем отступы у кнопок */
+  margin: 0;
 }
 
+/* Эффект при наведении на кнопку */
 .view-router-button button:hover {
   background-color: #187bcd;
 }

@@ -1,4 +1,5 @@
 <template>
+  <!-- Контейнер для заголовка и списка продуктов -->
   <div class="header-container"><h1>Каталог товаров</h1></div>
   <div class="product-list">
     <ProductCard
@@ -10,18 +11,19 @@
 </template>
 
 <script lang="ts">
-// Определяем основной компонент приложения
-import '../assets/styles/Catalog.css' // Импортируем файл стилей
+// Импорт стилей для компонента каталога
+import '../assets/styles/Catalog.css'
 import '../assets/base.css'
 
 import { defineComponent } from 'vue'
 import ProductCard from '../components/ProductCard.vue'
 
 export default defineComponent({
-  name: 'Catalog',
-  components: { ProductCard },
+  name: 'Catalog', // Уникальное имя компонента для идентификации
+  components: { ProductCard }, // Регистрация компонента ProductCard
   data() {
     return {
+      // Массив товаров для отображения в каталоге
       products: [
         {
           id: 1,

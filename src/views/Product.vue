@@ -1,17 +1,22 @@
 <template>
   <div v-if="product">
+    <!-- Название товара -->
     <div class="product-name">
       <h1>{{ product.name }}</h1>
     </div>
+    <!-- Изображение товара -->
     <div class="block-image">
       <img :src="product.imageUrl" :alt="product.name" class="product-image" />
     </div>
 
+    <!-- Цена товара -->
     <p><strong>Цена:</strong> {{ product.price }} руб.</p>
 
+    <!-- Описание товара -->
     <h2>Описание товара</h2>
     <p>{{ product.description }}</p>
 
+    <!-- Характеристики товара -->
     <h2>Характеристики</h2>
     <table class="spec-table">
       <tr v-for="(value, key) in product.specs" :key="key">
@@ -22,12 +27,15 @@
       </tr>
     </table>
 
+    <!-- Кнопка добавления товара в корзину -->
     <button @click="addToCart(product)">Добавить в корзину</button>
   </div>
+  <!-- Сообщение об отсутствии товара -->
   <p v-else>Товар не найден</p>
 </template>
 
 <script lang="ts">
+// Импорт стилей для компонента продукта
 import '../assets/styles/Product.css'
 
 import { defineComponent, computed } from 'vue'
@@ -35,7 +43,7 @@ import { useCartStore } from '../stores/cart'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({
-  name: 'Product',
+  name: 'Product', // Уникальное имя компонента для идентификации
   setup() {
     const route = useRoute()
     const cartStore = useCartStore()
@@ -74,6 +82,7 @@ export default defineComponent({
       products.find(item => item.id === parseInt(route.params.id as string)),
     )
 
+    // Функция добавления товара в корзину
     const addToCart = (product: {
       id: number
       name: string
