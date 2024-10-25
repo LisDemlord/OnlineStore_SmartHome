@@ -11,7 +11,8 @@
 
 <script lang="ts">
 // Определяем основной компонент приложения
-import '../assets/style.css' // Импортируем файл стилей
+import '../assets/styles/Cart.css' // Импортируем файл стилей
+import '../assets/base.css'
 
 import { defineComponent, computed } from 'vue'
 import { useCartStore } from '../stores/cart'

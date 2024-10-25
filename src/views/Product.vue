@@ -1,49 +1,88 @@
 <template>
   <div v-if="product">
-    <!-- Проверяем, существует ли продукт -->
-    <h1>{{ product.name }}</h1>
-    <!-- Отображаем название продукта -->
-    <p>Цена: {{ product.price }} руб.</p>
-    <!-- Отображаем цену продукта -->
-    <button @click="addToCart">Добавить в корзину</button>
-    <!-- Кнопка для добавления продукта в корзину -->
+    <div class="product-name">
+      <h1>{{ product.name }}</h1>
+    </div>
+    <img :src="product.imageUrl" :alt="product.name" class="product-image" />
+
+    <p><strong>Цена:</strong> {{ product.price }} руб.</p>
+
+    <h2>Описание товара</h2>
+    <p>{{ product.description }}</p>
+
+    <h2>Характеристики</h2>
+    <table class="spec-table">
+      <tr v-for="(value, key) in product.specs" :key="key">
+        <td>
+          <strong>{{ key }}</strong>
+        </td>
+        <td>{{ value }}</td>
+      </tr>
+    </table>
+
+    <button @click="addToCart(product)">Добавить в корзину</button>
   </div>
+  <p v-else>Товар не найден</p>
 </template>
 
 <script lang="ts">
-// Импортируем необходимые функции и хранилище
-import { defineComponent } from 'vue'
-import { useCartStore } from '../stores/cart' // Импортируем хранилище корзины
-import { useRoute } from 'vue-router' // Импортируем функцию для работы с маршрутом
+import '../assets/styles/Product.css'
+
+import { defineComponent, computed } from 'vue'
+import { useCartStore } from '../stores/cart'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
-  name: 'Product', // Имя компонента
-  data() {
-    return {
-      // Инициализируем переменную product как null
-      product: null as { id: number; name: string; price: number } | null,
-    }
-  },
+  name: 'Product',
   setup() {
-    const route = useRoute() // Получаем текущий маршрут
-    const cartStore = useCartStore() // Получаем доступ к хранилищу корзины
+    const route = useRoute()
+    const cartStore = useCartStore()
+
+    // Временные данные о товарах
     const products = [
-      { id: 1, name: 'Умная лампа', price: 1500 }, // Продукт 1
-      { id: 2, name: 'Умная розетка', price: 2000 }, // Продукт 2
+      {
+        id: 1,
+        name: 'Умная лампа',
+        price: 1500,
+        imageUrl: '/src/assets/smart-lamp.jpg',
+        description: 'Энергоэффективная лампа с управлением через смартфон.',
+        specs: {
+          Мощность: '10 Вт',
+          'Цветовая температура': '2700K - 6500K',
+          'Срок службы': '25,000 часов',
+        },
+      },
+      {
+        id: 2,
+        name: 'Умная розетка',
+        price: 2000,
+        imageUrl: '/src/assets/smart-socket.jpg',
+        description:
+          'Управляемая розетка с функцией таймера и дистанционного управления.',
+        specs: {
+          Напряжение: '220-240 В',
+          'Максимальная мощность': '16 А',
+          'Поддержка Wi-Fi': 'Да',
+        },
+      },
     ]
 
-    // Находим продукт по id, полученному из параметров маршрута
-    const product = products.find(p => p.id === Number(route.params.id))
+    // Ищем товар по ID из маршрута
+    const product = computed(() =>
+      products.find(item => item.id === parseInt(route.params.id as string)),
+    )
+
+    const addToCart = (product: {
+      id: number
+      name: string
+      price: number
+    }) => {
+      cartStore.addToCart(product)
+    }
 
     return {
-      product, // Возвращаем найденный продукт
-      addToCart: () => {
-        // Метод для добавления продукта в корзину
-        if (product) {
-          cartStore.addToCart(product) // Добавляем продукт в корзину
-          alert('Товар добавлен в корзину') // Уведомляем пользователя
-        }
-      },
+      product,
+      addToCart,
     }
   },
 })

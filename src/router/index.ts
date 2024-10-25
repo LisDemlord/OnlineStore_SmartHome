@@ -1,39 +1,19 @@
-// Импортируем необходимые функции и компоненты из библиотеки Vue Router
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue' // Импортируем компонент главной страницы
-import Catalog from '../views/Catalog.vue' // Импортируем компонент каталога
-import Product from '../views/Product.vue' // Импортируем компонент страницы продукта
-import Cart from '../views/Cart.vue' // Импортируем компонент корзины
+import Home from '../views/Home.vue'
+import Catalog from '../views/Catalog.vue'
+import Cart from '../views/Cart.vue'
+import Product from '../views/Product.vue'
 
-// Определяем массив маршрутов
 const routes = [
-  {
-    path: '/', // URL-адрес для главной страницы
-    name: 'Home', // Имя маршрута
-    component: Home, // Компонент, который будет отображаться при переходе по этому маршруту
-  },
-  {
-    path: '/catalog', // URL-адрес для страницы каталога
-    name: 'Catalog', // Имя маршрута
-    component: Catalog, // Компонент, который будет отображаться при переходе по этому маршруту
-  },
-  {
-    path: '/product/:id', // URL-адрес для страницы продукта с параметром id
-    name: 'Product', // Имя маршрута
-    component: Product, // Компонент, который будет отображаться при переходе по этому маршруту
-  },
-  {
-    path: '/cart', // URL-адрес для страницы корзины
-    name: 'Cart', // Имя маршрута
-    component: Cart, // Компонент, который будет отображаться при переходе по этому маршруту
-  },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/catalog', name: 'Catalog', component: Catalog },
+  { path: '/cart', name: 'Cart', component: Cart },
+  { path: '/product/:id', name: 'Product', component: Product, props: true },
 ]
 
-// Создаем экземпляр маршрутизатора с использованием истории браузера
 const router = createRouter({
-  history: createWebHistory(), // Используем режим истории для управления URL
-  routes, // Передаем массив маршрутов
+  history: createWebHistory(),
+  routes,
 })
 
-// Экспортируем созданный маршрутизатор для использования в приложении
 export default router

@@ -5,7 +5,7 @@
 
 <script lang="ts">
 // Определяем основной компонент приложения
-import '../assets/style.css' // Импортируем файл стилей
+import '../assets/base.css'
 
 // Определяем компонент Home
 export default {

@@ -17,7 +17,7 @@
 
 <script lang="ts">
 // Определяем основной компонент приложения
-import './assets/style.css' // Импортируем файл стилей
+import './assets/styles/App.css' // Импортируем файл стилей
 
 // Определяем основной компонент приложения
 export default {

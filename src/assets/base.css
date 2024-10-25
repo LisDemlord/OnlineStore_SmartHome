@@ -1,0 +1,6 @@
+.header-container {
+  display: flex;
+  justify-content: center; /* Центрируем по горизонтали */
+  align-items: center; /* Центрируем по вертикали (если нужно) */
+  height: 100px; /* Установите высоту контейнера, если нужно */
+}

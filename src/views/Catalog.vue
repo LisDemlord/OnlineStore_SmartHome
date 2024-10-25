@@ -11,7 +11,8 @@
 
 <script lang="ts">
 // Определяем основной компонент приложения
-import '../assets/style.css' // Импортируем файл стилей
+import '../assets/styles/Catalog.css' // Импортируем файл стилей
+import '../assets/base.css'
 
 import { defineComponent } from 'vue'
 import ProductCard from '../components/ProductCard.vue'
