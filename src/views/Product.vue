@@ -1,49 +1,45 @@
+<!-- src\views\Product.vue -->
 <template>
-  <div v-if="product">
-    <!-- Название товара -->
-    <div class="product-name">
-      <h1>{{ product.name }}</h1>
-    </div>
-    <!-- Изображение товара -->
-    <div class="block-image">
-      <img :src="product.imageUrl" :alt="product.name" class="product-image" />
-    </div>
-
-    <!-- Цена товара -->
-    <p><strong>Цена:</strong> {{ product.price }} руб.</p>
-
-    <!-- Описание товара -->
-    <h2>Описание товара</h2>
-    <p>{{ product.description }}</p>
-
-    <!-- Характеристики товара -->
-    <h2>Характеристики</h2>
-    <table class="spec-table">
-      <tr v-for="(value, key) in product.specs" :key="key">
-        <td>
-          <strong>{{ key }}</strong>
-        </td>
-        <td>{{ value }}</td>
+  <div v-if="product" class="p-6 bg-white rounded-lg shadow-md max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold text-gray-800 mb-6">{{ product.name }}</h1>
+    <img
+      :src="product.imageUrl"
+      :alt="product.name"
+      class="w-full h-auto rounded-lg shadow-md mb-6"
+    />
+    <p class="text-xl text-gray-700 mb-4">
+      <strong>Цена:</strong> {{ product.price }} руб.
+    </p>
+    <h2 class="text-2xl font-bold text-gray-800 mb-2">Описание товара</h2>
+    <p class="text-gray-600 mb-6">{{ product.description }}</p>
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">Характеристики</h2>
+    <table class="w-full border-collapse border border-gray-300 text-left">
+      <tr
+        v-for="(value, key) in product.specs"
+        :key="key"
+        class="border-b border-gray-300"
+      >
+        <td class="py-3 px-4 font-semibold text-gray-800">{{ key }}</td>
+        <td class="py-3 px-4 text-gray-600">{{ value }}</td>
       </tr>
     </table>
-
-    <!-- Кнопка добавления товара в корзину -->
-    <button @click="addToCart(product)">Добавить в корзину</button>
+    <button
+      @click="addToCart(product)"
+      class="bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-700 shadow-md mt-6"
+    >
+      Добавить в корзину
+    </button>
   </div>
-  <!-- Сообщение об отсутствии товара -->
-  <p v-else>Товар не найден</p>
+  <p v-else class="text-center text-gray-500 text-xl">Товар не найден</p>
 </template>
 
 <script lang="ts">
-// Импорт стилей для компонента продукта
-import '../assets/styles/Product.css'
-
 import { defineComponent, computed } from 'vue'
 import { useCartStore } from '../stores/cart'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({
-  name: 'Product', // Уникальное имя компонента для идентификации
+  name: 'Product',
   setup() {
     const route = useRoute()
     const cartStore = useCartStore()

@@ -1,26 +1,31 @@
+<!-- src\components\ProductCard.vue -->
 <template>
-  <div class="product-card">
+  <div class="w-60 flex-shrink-0 border rounded-lg shadow-md p-4">
     <!-- Ссылка на страницу товара с изображением -->
-    <router-link :to="'/product/' + product.id">
-      <img :src="product.imageUrl" :alt="product.name" class="product-image" />
+    <router-link :to="'/product/' + product.id" class="block">
+      <img
+        :src="product.imageUrl"
+        :alt="product.name"
+        class="w-full h-40 object-cover rounded-md mb-4"
+      />
     </router-link>
-    <h3>{{ product.name }}</h3>
-    <p>{{ product.price }} руб.</p>
+    <h3 class="text-lg font-semibold mb-2">{{ product.name }}</h3>
+    <p class="text-gray-600 mb-4">{{ product.price }} руб.</p>
     <!-- Кнопка для просмотра товара с обёрткой router-link -->
-    <router-link :to="'/product/' + product.id" class="view-product-button">
-      <button>Посмотреть товар</button>
+    <router-link
+      :to="'/product/' + product.id"
+      class="bg-blue-500 text-white py-2 px-4 rounded block text-center hover:bg-blue-600"
+    >
+      Посмотреть товар
     </router-link>
   </div>
 </template>
 
 <script lang="ts">
-// Импорт стилей для карточки товара
-import '../assets/styles/ProductCard.css'
-
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 
 export default defineComponent({
-  name: 'ProductCard', // Уникальное имя компонента для идентификации
+  name: 'ProductCard',
   props: {
     product: {
       type: Object as PropType<{
@@ -29,7 +34,7 @@ export default defineComponent({
         price: number
         imageUrl: string
       }>,
-      required: true, // Обязательный пропс для передачи данных о товаре
+      required: true,
     },
   },
 })

@@ -1,6 +1,0 @@
-/* Стили для списка товаров */
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}

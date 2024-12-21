@@ -1,29 +1,26 @@
+<!-- src\views\Catalog.vue -->
 <template>
-  <!-- Контейнер для заголовка и списка продуктов -->
-  <div class="header-container"><h1>Каталог товаров</h1></div>
-  <div class="product-list">
-    <ProductCard
-      v-for="product in products"
-      :key="product.id"
-      :product="product"
-    />
+  <div class="p-6 bg-white rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">Каталог товаров</h1>
+    <div class="flex flex-wrap justify-start gap-4">
+      <ProductCard
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-// Импорт стилей для компонента каталога
-import '../assets/styles/Catalog.css'
-import '../assets/base.css'
-
 import { defineComponent } from 'vue'
 import ProductCard from '../components/ProductCard.vue'
 
 export default defineComponent({
-  name: 'Catalog', // Уникальное имя компонента для идентификации
-  components: { ProductCard }, // Регистрация компонента ProductCard
+  name: 'Catalog',
+  components: { ProductCard },
   data() {
     return {
-      // Массив товаров для отображения в каталоге
       products: [
         {
           id: 1,

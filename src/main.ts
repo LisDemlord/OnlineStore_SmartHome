@@ -3,6 +3,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
+import './assets/main.css' // Подключение Tailwind CSS
 
 // Создаем экземпляр приложения Vue
 const app = createApp(App)

@@ -1,14 +1,12 @@
+<!-- src\views\Home.vue -->
 <template>
-  <!-- Основной контейнер для заголовка главной страницы -->
-  <div class="header-container"><h1>Главная страница</h1></div>
+  <div class="p-4">
+    <h1 class="text-2xl font-bold">Главная страница</h1>
+  </div>
 </template>
 
 <script lang="ts">
-// Импорт глобальных стилей для компонента
-import '../assets/base.css'
-
-// Определяем компонент Home
 export default {
-  name: 'Home', // Уникальное имя компонента для идентификации
+  name: 'Home',
 }
 </script>
